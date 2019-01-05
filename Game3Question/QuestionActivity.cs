@@ -15,10 +15,18 @@ namespace Game3Question
     [Activity(Label = "QuestionActivity", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class QuestionActivity : Activity
     {
-        Button btn;
-        TextView txt;
-        List<string> Persons;
+        Button btnPush;
+        Button btnWrong;
+        Button btnCorrect;
+
+        TextView txtQuestion;
+        TextView txtName;
+
+        List<Person> Persons;
         List<string> questions;
+
+        int i = 0;
+        int j =0;
 
 
 
@@ -27,35 +35,55 @@ namespace Game3Question
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.Questionlayout);
-            Persons = new List<string>();
+            Persons = new List<Person>();
             questions = new List<string>();
 
-            Persons.Add("منصور");
-            Persons.Add("علی");
-            Persons.Add("محمد");
-            Persons.Add("مریم");
+            Persons.Add(new Person() {Id=0,Name="منصور",Score=0 });
+            Persons.Add(new Person() { Id = 0, Name = "علی", Score = 0 });
+            //Persons.Add(new Person() { Id = 0, Name = "محمد", Score = 0 });
+            //Persons.Add(new Person() { Id = 0, Name = "مریم", Score = 0 });
+
+            j = i % 2;
+
 
             questions.Add("نام سه کشوری که با الف شروع می شود");
             questions.Add("نام سه غذای مورد علاقه ت");
             questions.Add("نام سه تا از شهر های جنوبی ایران");
+            questions.Add("نام سه تا از کشورهای اروپا");
 
 
 
-            btn = FindViewById<Button>(Resource.Id.btnPush);
-             txt = FindViewById<TextView>(Resource.Id.txtQuestion);
+            btnPush = FindViewById<Button>(Resource.Id.btnPush);
+            btnWrong = FindViewById<Button>(Resource.Id.btnWrong);
+            btnCorrect = FindViewById<Button>(Resource.Id.btnCorrect);
+
+            txtQuestion = FindViewById<TextView>(Resource.Id.txtQuestion);
+            txtName = FindViewById<TextView>(Resource.Id.txtPersonName);
+
+            txtName.Text = Persons.ElementAt(i).Name+"    (0)";
+
+
+            btnCorrect.Visibility = ViewStates.Invisible;
+            btnWrong.Visibility = ViewStates.Invisible;
+
+            btnCorrect.Click += BtnCorrect_Click;
+            btnWrong.Click += BtnWrong_Click;
       
        
 
 
-            btn.Touch += (object sender, View.TouchEventArgs e) =>
+            btnPush.Touch += (object sender, View.TouchEventArgs e) =>
             {
                 if (e.Event.Action == MotionEventActions.Down)
                 {
-                    txt.Text = questions.ElementAt(0);
+                    txtQuestion.Text = questions.ElementAt(i);
                 }
                 else if (e.Event.Action == MotionEventActions.Up)
                 {
-                    txt.Text = "";
+                    txtQuestion.Text = "";
+                    btnCorrect.Visibility = ViewStates.Visible;
+                    btnWrong.Visibility = ViewStates.Visible;
+                    btnPush.Visibility = ViewStates.Invisible;
 
                 }
             };
@@ -66,9 +94,27 @@ namespace Game3Question
             // Create your application here
         }
 
-   
-      
+        private void BtnWrong_Click(object sender, EventArgs e)
+        {
+            SetAnser(false);
+        }
 
+        private void BtnCorrect_Click(object sender, EventArgs e)
+        {
+            SetAnser(true);
+        }
 
+        public void SetAnser(bool isCorrect)
+        {
+           
+            btnCorrect.Visibility = ViewStates.Invisible;
+            btnWrong.Visibility = ViewStates.Invisible;
+            btnPush.Visibility = ViewStates.Visible;
+            if (isCorrect)
+                Persons.ElementAt(j).Score = Persons.ElementAt(j).Score + 1;
+            i++;
+            j = i % 2;
+            txtName.Text = Persons.ElementAt(j).Name+"    ("+ Persons.ElementAt(j).Score+")";
+        }
     }
 }

@@ -2237,8 +2237,8 @@ namespace Game3Question
 			// aapt resource value: 0x7f080043
 			public const int action_mode_close_button = 2131230787;
 			
-			// aapt resource value: 0x7f0800a1
-			public const int action_settings = 2131230881;
+			// aapt resource value: 0x7f0800a3
+			public const int action_settings = 2131230883;
 			
 			// aapt resource value: 0x7f080086
 			public const int action_text = 2131230854;
@@ -2270,8 +2270,14 @@ namespace Game3Question
 			// aapt resource value: 0x7f080028
 			public const int bottom = 2131230760;
 			
+			// aapt resource value: 0x7f0800a0
+			public const int btnCorrect = 2131230880;
+			
+			// aapt resource value: 0x7f08009f
+			public const int btnPush = 2131230879;
+			
 			// aapt resource value: 0x7f08009e
-			public const int btnPush = 2131230878;
+			public const int btnWrong = 2131230878;
 			
 			// aapt resource value: 0x7f08004b
 			public const int buttonPanel = 2131230795;
@@ -2429,8 +2435,8 @@ namespace Game3Question
 			// aapt resource value: 0x7f080074
 			public const int mansour = 2131230836;
 			
-			// aapt resource value: 0x7f0800a0
-			public const int masked = 2131230880;
+			// aapt resource value: 0x7f0800a2
+			public const int masked = 2131230882;
 			
 			// aapt resource value: 0x7f08008a
 			public const int media_actions = 2131230858;
@@ -2663,8 +2669,8 @@ namespace Game3Question
 			// aapt resource value: 0x7f08000e
 			public const int view_offset_helper = 2131230734;
 			
-			// aapt resource value: 0x7f08009f
-			public const int visible = 2131230879;
+			// aapt resource value: 0x7f0800a1
+			public const int visible = 2131230881;
 			
 			// aapt resource value: 0x7f080027
 			public const int withText = 2131230759;
