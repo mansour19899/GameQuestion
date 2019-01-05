@@ -29,6 +29,7 @@ namespace Game3Question
             SetContentView(Resource.Layout.Questionlayout);
             Persons = new List<string>();
             questions = new List<string>();
+
             Persons.Add("منصور");
             Persons.Add("علی");
             Persons.Add("محمد");
