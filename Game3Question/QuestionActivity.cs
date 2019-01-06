@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Timers;
 using Android.App;
 using Android.Content;
+using Android.Media;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -28,7 +29,8 @@ namespace Game3Question
         int i = 0;
         int j =0;
 
-
+        private MediaPlayer _player;
+        private Timer timer;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -44,8 +46,22 @@ namespace Game3Question
             //Persons.Add(new Person() { Id = 0, Name = "مریم", Score = 0 });
 
             j = i % 2;
+            _player = MediaPlayer.Create(this, Resource.Raw.soundEnd1);
+           
 
+            timer = new Timer();
+            timer.Interval = 5000;
+            timer.Elapsed += Timer_Elapsed;
+            
 
+            questions.Add("نام سه کشوری که با الف شروع می شود");
+            questions.Add("نام سه غذای مورد علاقه ت");
+            questions.Add("نام سه تا از شهر های جنوبی ایران");
+            questions.Add("نام سه تا از کشورهای اروپا");
+            questions.Add("نام سه کشوری که با الف شروع می شود");
+            questions.Add("نام سه غذای مورد علاقه ت");
+            questions.Add("نام سه تا از شهر های جنوبی ایران");
+            questions.Add("نام سه تا از کشورهای اروپا");
             questions.Add("نام سه کشوری که با الف شروع می شود");
             questions.Add("نام سه غذای مورد علاقه ت");
             questions.Add("نام سه تا از شهر های جنوبی ایران");
@@ -61,7 +77,7 @@ namespace Game3Question
             txtName = FindViewById<TextView>(Resource.Id.txtPersonName);
 
             txtName.Text = Persons.ElementAt(i).Name+"    (0)";
-
+            txtQuestion.Text = "";
 
             btnCorrect.Visibility = ViewStates.Invisible;
             btnWrong.Visibility = ViewStates.Invisible;
@@ -84,6 +100,9 @@ namespace Game3Question
                     btnCorrect.Visibility = ViewStates.Visible;
                     btnWrong.Visibility = ViewStates.Visible;
                     btnPush.Visibility = ViewStates.Invisible;
+                    timer.Start();
+                    _player = MediaPlayer.Create(this, Resource.Raw.soundEnd1);
+                    _player.Start();
 
                 }
             };
@@ -92,6 +111,12 @@ namespace Game3Question
 
 
             // Create your application here
+        }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            RunOnUiThread(() =>txtQuestion.Text="زمان تمام شد");
+            
         }
 
         private void BtnWrong_Click(object sender, EventArgs e)
@@ -106,7 +131,9 @@ namespace Game3Question
 
         public void SetAnser(bool isCorrect)
         {
-           
+            _player.Stop();
+            timer.Stop();
+            txtQuestion.Text = "";
             btnCorrect.Visibility = ViewStates.Invisible;
             btnWrong.Visibility = ViewStates.Invisible;
             btnPush.Visibility = ViewStates.Visible;

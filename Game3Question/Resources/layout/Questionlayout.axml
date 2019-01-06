@@ -10,14 +10,14 @@
         p1:text="Medium Text"
         p1:textAppearance="?android:attr/textAppearanceMedium"
         p1:layout_width="match_parent"
-        p1:layout_height="wrap_content"
+        p1:layout_height="52.0dp"
         p1:id="@+id/txtPersonName"
         p1:gravity="center" />
     <TextView
         p1:text="Large Text"
         p1:textAppearance="?android:attr/textAppearanceLarge"
         p1:layout_width="match_parent"
-        p1:layout_height="349.5dp"
+        p1:layout_height="318.5dp"
         p1:id="@+id/txtQuestion"
         p1:layout_marginBottom="40.5dp"
         p1:gravity="center_vertical|center" />
