@@ -116,6 +116,7 @@ namespace Game3Question
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             RunOnUiThread(() =>txtQuestion.Text="زمان تمام شد");
+            timer.Stop();
             
         }
 
