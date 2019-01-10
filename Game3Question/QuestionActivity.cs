@@ -41,12 +41,12 @@ namespace Game3Question
             Persons = new List<Person>();
             questions = new List<string>();
 
-            Persons.Add(new Person() { Id = 0, Name = "منصور", Score = 0 });
+            Persons.Add(new Person() { Id = 0, Name = "احمد", Score = 0 });
             Persons.Add(new Person() { Id = 0, Name = "علی", Score = 0 });
-            //Persons.Add(new Person() { Id = 0, Name = "محمد", Score = 0 });
-            //Persons.Add(new Person() { Id = 0, Name = "مریم", Score = 0 });
+            Persons.Add(new Person() { Id = 0, Name = "محمد", Score = 0 });
+            Persons.Add(new Person() { Id = 0, Name = "مریم", Score = 0 });
 
-            j = i % 2;
+            j = i % 4;
             _player = MediaPlayer.Create(this, Resource.Raw.soundEnd1);
 
 
@@ -126,10 +126,18 @@ namespace Game3Question
         private void TxtName_Click(object sender, EventArgs e)
         {
             Android.Content.Intent intent = new Intent(this, typeof(ScoreActivity));
-                  Bundle bundle = new Bundle();
-                   //bundle.PutAll("data",Persons);
-                 intent.PutExtras(bundle);
-               StartActivity(intent);
+            UserParcelable parcelable = new UserParcelable();
+
+            parcelable.person = Persons.ElementAt(0);
+            int i = 0;
+            foreach (var item in Persons.OrderByDescending(p=>p.Score))
+            {
+                intent.PutExtra("per"+i, new UserParcelable() { person = item });
+                i++;
+            }
+            intent.PutExtra("count", Persons.Count());
+
+            StartActivity(intent);
     }
 
     private void Timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -160,7 +168,7 @@ namespace Game3Question
         if (isCorrect)
             Persons.ElementAt(j).Score = Persons.ElementAt(j).Score + 1;
         i++;
-        j = i % 2;
+        j = i % 4;
         txtName.Text = Persons.ElementAt(j).Name + "    (" + Persons.ElementAt(j).Score + ")";
     }
 
@@ -172,3 +180,9 @@ namespace Game3Question
     }
 }
 }
+
+
+
+
+
+//https://github.com/damienaicheh/XamarinAndroidParcelable/tree/final/Droid

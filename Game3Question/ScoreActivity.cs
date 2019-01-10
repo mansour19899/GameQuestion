@@ -36,10 +36,20 @@ namespace Game3Question
             txt4 = FindViewById<TextView>(Resource.Id.txt4);
             txt5 = FindViewById<TextView>(Resource.Id.txt5);
             txt6 = FindViewById<TextView>(Resource.Id.txt6);
+            List<TextView> txts = new List<TextView>() {txt1,txt2,txt3,txt4,txt5,txt6 };
+            UserParcelable parcelable;
+            int i;
+            for ( i = 0; i < (int)Intent.GetIntExtra("count", 0); i++)
+            {
+                 parcelable = (UserParcelable)Intent.GetParcelableExtra("per"+i);
+                txts.ElementAt(i).Text=(i+1)+"-"+ parcelable.person.Name+"("+ parcelable.person.Score+")";
+     
+            }
+            for (int j = i; j < 6; j++)
+            {
+                txts.ElementAt(j).Visibility = ViewStates.Invisible;
+            }
 
-            txt1.Text = "علی";
-            txt1.Text = "منصور";
-            txt1.Text = "محمد";
 
             // Create your application here
         }
