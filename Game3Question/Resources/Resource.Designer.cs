@@ -2186,6 +2186,9 @@ namespace Game3Question
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f0900a2
+			public const int ScoreHome = 2131296418;
+			
 			// aapt resource value: 0x7f090088
 			public const int action0 = 2131296392;
 			
@@ -2237,8 +2240,8 @@ namespace Game3Question
 			// aapt resource value: 0x7f090043
 			public const int action_mode_close_button = 2131296323;
 			
-			// aapt resource value: 0x7f0900ab
-			public const int action_settings = 2131296427;
+			// aapt resource value: 0x7f0900ac
+			public const int action_settings = 2131296428;
 			
 			// aapt resource value: 0x7f090087
 			public const int action_text = 2131296391;
@@ -2435,8 +2438,8 @@ namespace Game3Question
 			// aapt resource value: 0x7f090074
 			public const int mansour = 2131296372;
 			
-			// aapt resource value: 0x7f0900aa
-			public const int masked = 2131296426;
+			// aapt resource value: 0x7f0900ab
+			public const int masked = 2131296427;
 			
 			// aapt resource value: 0x7f09008b
 			public const int media_actions = 2131296395;
@@ -2657,23 +2660,23 @@ namespace Game3Question
 			// aapt resource value: 0x7f09000b
 			public const int transition_scene_layoutid_cache = 2131296267;
 			
-			// aapt resource value: 0x7f0900a3
-			public const int txt1 = 2131296419;
-			
 			// aapt resource value: 0x7f0900a4
-			public const int txt2 = 2131296420;
+			public const int txt1 = 2131296420;
 			
 			// aapt resource value: 0x7f0900a5
-			public const int txt3 = 2131296421;
+			public const int txt2 = 2131296421;
 			
 			// aapt resource value: 0x7f0900a6
-			public const int txt4 = 2131296422;
+			public const int txt3 = 2131296422;
 			
 			// aapt resource value: 0x7f0900a7
-			public const int txt5 = 2131296423;
+			public const int txt4 = 2131296423;
 			
 			// aapt resource value: 0x7f0900a8
-			public const int txt6 = 2131296424;
+			public const int txt5 = 2131296424;
+			
+			// aapt resource value: 0x7f0900a9
+			public const int txt6 = 2131296425;
 			
 			// aapt resource value: 0x7f09009c
 			public const int txtPersonName = 2131296412;
@@ -2681,8 +2684,8 @@ namespace Game3Question
 			// aapt resource value: 0x7f09009d
 			public const int txtQuestion = 2131296413;
 			
-			// aapt resource value: 0x7f0900a2
-			public const int txtScore = 2131296418;
+			// aapt resource value: 0x7f0900a3
+			public const int txtScore = 2131296419;
 			
 			// aapt resource value: 0x7f090009
 			public const int up = 2131296265;
@@ -2693,8 +2696,8 @@ namespace Game3Question
 			// aapt resource value: 0x7f09000e
 			public const int view_offset_helper = 2131296270;
 			
-			// aapt resource value: 0x7f0900a9
-			public const int visible = 2131296425;
+			// aapt resource value: 0x7f0900aa
+			public const int visible = 2131296426;
 			
 			// aapt resource value: 0x7f090027
 			public const int withText = 2131296295;

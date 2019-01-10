@@ -4,7 +4,8 @@
     p1:layout_width="match_parent"
     p1:layout_height="match_parent"
     p1:minWidth="25px"
-    p1:minHeight="25px">
+    p1:minHeight="25px"
+    p1:id="@+id/ScoreHome">
     <TextView
         p1:text="امتیاز"
         p1:layout_width="match_parent"
@@ -13,8 +14,8 @@
         p1:gravity="center"
         p1:textSize="20dp"
         p1:textStyle="bold"
-        p1:layout_marginRight="20dp"
-        p1:layout_marginLeft="20dp"
+        p1:layout_marginRight="60dp"
+        p1:layout_marginLeft="60dp"
         p1:layout_marginTop="10dp"
         p1:layout_marginBottom="10dp" />
     <TextView
@@ -25,8 +26,8 @@
         p1:gravity="center"
         p1:textSize="20dp"
         p1:textStyle="bold"
-        p1:layout_marginRight="20dp"
-        p1:layout_marginLeft="20dp"
+        p1:layout_marginRight="60dp"
+        p1:layout_marginLeft="60dp"
         p1:layout_marginTop="10dp"
         p1:layout_marginBottom="10dp" />
     <TextView
@@ -37,8 +38,8 @@
         p1:gravity="center"
         p1:textSize="20dp"
         p1:textStyle="bold"
-        p1:layout_marginRight="20dp"
-        p1:layout_marginLeft="20dp"
+        p1:layout_marginRight="60dp"
+        p1:layout_marginLeft="60dp"
         p1:layout_marginTop="10dp"
         p1:layout_marginBottom="10dp" />
     <TextView
@@ -49,8 +50,8 @@
         p1:gravity="center"
         p1:textSize="20dp"
         p1:textStyle="bold"
-        p1:layout_marginRight="20dp"
-        p1:layout_marginLeft="20dp"
+        p1:layout_marginRight="60dp"
+        p1:layout_marginLeft="60dp"
         p1:layout_marginTop="10dp"
         p1:layout_marginBottom="10dp" />
     <TextView
@@ -61,8 +62,8 @@
         p1:gravity="center"
         p1:textSize="20dp"
         p1:textStyle="bold"
-        p1:layout_marginRight="20dp"
-        p1:layout_marginLeft="20dp"
+        p1:layout_marginRight="60dp"
+        p1:layout_marginLeft="60dp"
         p1:layout_marginTop="10dp"
         p1:layout_marginBottom="10dp" />
     <TextView
@@ -73,8 +74,8 @@
         p1:gravity="center"
         p1:textSize="20dp"
         p1:textStyle="bold"
-        p1:layout_marginRight="20dp"
-        p1:layout_marginLeft="20dp"
+        p1:layout_marginRight="60dp"
+        p1:layout_marginLeft="60dp"
         p1:layout_marginTop="10dp"
         p1:layout_marginBottom="10dp" />
     <TextView
@@ -85,8 +86,8 @@
         p1:gravity="center"
         p1:textSize="20dp"
         p1:textStyle="bold"
-        p1:layout_marginRight="20dp"
-        p1:layout_marginLeft="20dp"
+        p1:layout_marginRight="60dp"
+        p1:layout_marginLeft="60dp"
         p1:layout_marginTop="10dp"
         p1:layout_marginBottom="10dp" />
 </LinearLayout>

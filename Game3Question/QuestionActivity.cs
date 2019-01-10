@@ -72,6 +72,18 @@ namespace Game3Question
             questions.Add("نام سه غذای مورد علاقه ت");
             questions.Add("نام سه تا از شهر های جنوبی ایران");
             questions.Add("نام سه تا از کشورهای اروپا");
+            questions.Add("نام سه کشوری که با الف شروع می شود");
+            questions.Add("نام سه غذای مورد علاقه ت");
+            questions.Add("نام سه تا از شهر های جنوبی ایران");
+            questions.Add("نام سه تا از کشورهای اروپا");
+            questions.Add("نام سه کشوری که با الف شروع می شود");
+            questions.Add("نام سه غذای مورد علاقه ت");
+            questions.Add("نام سه تا از شهر های جنوبی ایران");
+            questions.Add("نام سه تا از کشورهای اروپا");
+            questions.Add("نام سه کشوری که با الف شروع می شود");
+            questions.Add("نام سه غذای مورد علاقه ت");
+            questions.Add("نام سه تا از شهر های جنوبی ایران");
+            questions.Add("نام سه تا از کشورهای اروپا");
 
 
 
