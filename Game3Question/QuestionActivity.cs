@@ -5,6 +5,7 @@ using System.Text;
 using System.Timers;
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.Media;
 using Android.OS;
 using Android.Runtime;
@@ -27,7 +28,7 @@ namespace Game3Question
         List<string> questions;
 
         int i = 0;
-        int j =0;
+        int j = 0;
 
         private MediaPlayer _player;
         private Timer timer;
@@ -40,19 +41,24 @@ namespace Game3Question
             Persons = new List<Person>();
             questions = new List<string>();
 
-            Persons.Add(new Person() {Id=0,Name="منصور",Score=0 });
+            Persons.Add(new Person() { Id = 0, Name = "منصور", Score = 0 });
             Persons.Add(new Person() { Id = 0, Name = "علی", Score = 0 });
             //Persons.Add(new Person() { Id = 0, Name = "محمد", Score = 0 });
             //Persons.Add(new Person() { Id = 0, Name = "مریم", Score = 0 });
 
             j = i % 2;
             _player = MediaPlayer.Create(this, Resource.Raw.soundEnd1);
-           
+
+
+            LinearLayout home = FindViewById<LinearLayout>(Resource.Id.linearLayout1);
+            home.SetBackgroundResource(Resource.Raw.Bcar9g4Ri);
+
+
 
             timer = new Timer();
             timer.Interval = 5000;
             timer.Elapsed += Timer_Elapsed;
-            
+
 
             questions.Add("نام سه کشوری که با الف شروع می شود");
             questions.Add("نام سه غذای مورد علاقه ت");
@@ -76,7 +82,7 @@ namespace Game3Question
             txtQuestion = FindViewById<TextView>(Resource.Id.txtQuestion);
             txtName = FindViewById<TextView>(Resource.Id.txtPersonName);
 
-            txtName.Text = Persons.ElementAt(i).Name+"    (0)";
+            txtName.Text = Persons.ElementAt(i).Name + "    (0)";
             txtQuestion.Text = "";
 
             btnCorrect.Visibility = ViewStates.Invisible;
@@ -84,15 +90,17 @@ namespace Game3Question
 
             btnCorrect.Click += BtnCorrect_Click;
             btnWrong.Click += BtnWrong_Click;
-      
-       
 
+
+            Color color = new Color(255, 255, 255, 170);
+            txtName.SetBackgroundColor(color);
 
             btnPush.Touch += (object sender, View.TouchEventArgs e) =>
             {
                 if (e.Event.Action == MotionEventActions.Down)
                 {
                     txtQuestion.Text = questions.ElementAt(i);
+                    txtQuestion.SetBackgroundColor(color);
                 }
                 else if (e.Event.Action == MotionEventActions.Up)
                 {
@@ -102,47 +110,65 @@ namespace Game3Question
                     btnPush.Visibility = ViewStates.Invisible;
                     timer.Start();
                     _player = MediaPlayer.Create(this, Resource.Raw.soundEnd1);
-                    _player.Start();
-
+                    //  _player.Start();
+                    txtQuestion.SetBackgroundColor(new Color(255, 255, 255, 0));
                 }
             };
 
+
+            txtName.Click += TxtName_Click;
 
 
 
             // Create your application here
         }
 
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        private void TxtName_Click(object sender, EventArgs e)
         {
-            RunOnUiThread(() =>txtQuestion.Text="زمان تمام شد");
-            timer.Stop();
-            
-        }
-
-        private void BtnWrong_Click(object sender, EventArgs e)
-        {
-            SetAnser(false);
-        }
-
-        private void BtnCorrect_Click(object sender, EventArgs e)
-        {
-            SetAnser(true);
-        }
-
-        public void SetAnser(bool isCorrect)
-        {
-            _player.Stop();
-            timer.Stop();
-            txtQuestion.Text = "";
-            btnCorrect.Visibility = ViewStates.Invisible;
-            btnWrong.Visibility = ViewStates.Invisible;
-            btnPush.Visibility = ViewStates.Visible;
-            if (isCorrect)
-                Persons.ElementAt(j).Score = Persons.ElementAt(j).Score + 1;
-            i++;
-            j = i % 2;
-            txtName.Text = Persons.ElementAt(j).Name+"    ("+ Persons.ElementAt(j).Score+")";
-        }
+            Android.Content.Intent intent = new Intent(this, typeof(ScoreActivity));
+                  Bundle bundle = new Bundle();
+                   //bundle.PutAll("data",Persons);
+                 intent.PutExtras(bundle);
+               StartActivity(intent);
     }
+
+    private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+    {
+        RunOnUiThread(() => txtQuestion.Text = "زمان تمام شد");
+        timer.Stop();
+
+    }
+
+    private void BtnWrong_Click(object sender, EventArgs e)
+    {
+        SetAnser(false);
+    }
+
+    private void BtnCorrect_Click(object sender, EventArgs e)
+    {
+        SetAnser(true);
+    }
+
+    public void SetAnser(bool isCorrect)
+    {
+        _player.Stop();
+        timer.Stop();
+        txtQuestion.Text = "";
+        btnCorrect.Visibility = ViewStates.Invisible;
+        btnWrong.Visibility = ViewStates.Invisible;
+        btnPush.Visibility = ViewStates.Visible;
+        if (isCorrect)
+            Persons.ElementAt(j).Score = Persons.ElementAt(j).Score + 1;
+        i++;
+        j = i % 2;
+        txtName.Text = Persons.ElementAt(j).Name + "    (" + Persons.ElementAt(j).Score + ")";
+    }
+
+    protected override void OnDestroy()
+    {
+        _player.Stop();
+        _player = null;
+        base.OnDestroy();
+    }
+}
 }

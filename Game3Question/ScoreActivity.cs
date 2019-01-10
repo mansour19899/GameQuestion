@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+
+namespace Game3Question
+{
+    [Activity(Label = "ScoreActivity")]
+    public class ScoreActivity : Activity
+    {
+        TextView txt1;
+        TextView txt2;
+        TextView txt3;
+        TextView txt4;
+        TextView txt5;
+        TextView txt6;
+
+
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.Scorelayout);
+
+            LinearLayout linearLayout = FindViewById<LinearLayout>(Resource.Id.linearLayout2);
+
+            txt1 = FindViewById<TextView>(Resource.Id.txt1);
+            txt2 = FindViewById<TextView>(Resource.Id.txt2);
+            txt3 = FindViewById<TextView>(Resource.Id.txt3);
+            txt4 = FindViewById<TextView>(Resource.Id.txt4);
+            txt5 = FindViewById<TextView>(Resource.Id.txt5);
+            txt6 = FindViewById<TextView>(Resource.Id.txt6);
+
+            txt1.Text = "علی";
+            txt1.Text = "منصور";
+            txt1.Text = "محمد";
+
+            // Create your application here
+        }
+    }
+}

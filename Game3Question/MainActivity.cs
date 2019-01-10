@@ -40,7 +40,12 @@ namespace Game3Question
             return base.OnOptionsItemSelected(item);
         }
 
-      
-	}
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+        }
+
+
+    }
 }
 
