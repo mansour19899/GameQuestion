@@ -14,7 +14,7 @@ using Android.Widget;
 
 namespace Game3Question
 {
-    [Activity(Label = "QuestionActivity", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+    [Activity(Label = "QuestionActivity", Theme = "@style/AppTheme.NoActionBar", MainLauncher = false)]
     public class QuestionActivity : Activity
     {
         Button btnPush;
@@ -41,10 +41,7 @@ namespace Game3Question
             SetContentView(Resource.Layout.Questionlayout);
             Persons = new List<Person>();   
 
-            Persons.Add(new Person() { Id = 0, Name = "احمد", Score = 0 });
-            Persons.Add(new Person() { Id = 0, Name = "علی", Score = 0 });
-            Persons.Add(new Person() { Id = 0, Name = "محمد", Score = 0 });
-            Persons.Add(new Person() { Id = 0, Name = "مریم", Score = 0 });
+            SetPerson();
 
             j = i % 4;
             _player = MediaPlayer.Create(this, Resource.Raw.soundEnd1);
@@ -116,6 +113,17 @@ namespace Game3Question
             // Create your application here
         }
 
+        public void SetPerson()
+        {
+            UserParcelable parcelable;
+            for (int i = 0; i < (int)Intent.GetIntExtra("count", 0); i++)
+            {
+                parcelable = (UserParcelable)Intent.GetParcelableExtra("per" + i);            
+                Persons.Add(parcelable.person);
+
+            }
+        }
+
         private void TxtName_Click(object sender, EventArgs e)
         {
             Android.Content.Intent intent = new Intent(this, typeof(ScoreActivity));
@@ -161,7 +169,7 @@ namespace Game3Question
         if (isCorrect)
             Persons.ElementAt(j).Score = Persons.ElementAt(j).Score + 1;
         i++;
-        j = i % 4;
+        j = i % Persons.Count();
         txtName.Text = Persons.ElementAt(j).Name + "    (" + Persons.ElementAt(j).Score + ")";
     }
 

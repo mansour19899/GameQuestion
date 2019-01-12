@@ -6,14 +6,177 @@
     p1:layout_width="match_parent"
     p1:layout_height="match_parent"
     p1:id="@+id/linearLayout1">
-    <Button
-        p1:text="Button"
-        p1:layout_width="match_parent"
-        p1:layout_height="wrap_content"
-        p1:id="@+id/mansour" />
     <TextView
-        p1:text="Text"
+        p1:text="شرکت کنندگان مسابقه را وارد کنید"
         p1:layout_width="match_parent"
-        p1:layout_height="57.0dp"
-        p1:id="@+id/textView1" />
+        p1:layout_height="63.5dp"
+        p1:id="@+id/textView1"
+        p1:gravity="center"
+        p1:textStyle="bold"
+        p1:textSize="25dp" />
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:layout_width="match_parent"
+        p1:layout_height="41.0dp"
+        p1:id="@+id/linearLayout2"
+        p1:layout_margin="10dp">
+        <EditText
+            p1:inputType="textPersonName"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/txtName1"
+            p1:layout_weight="6"
+            p1:textAlignment="center" />
+        <TextView
+            p1:textAppearance="?android:attr/textAppearanceMedium"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/textView2"
+            p1:layout_weight="4"
+            p1:gravity="center"
+            p1:text="شرکت کننده اول" />
+    </LinearLayout>
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:layout_width="match_parent"
+        p1:layout_height="41.0dp"
+        p1:id="@+id/linearLayout2"
+        p1:layout_margin="10dp">
+        <EditText
+            p1:inputType="textPersonName"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/txtName2"
+            p1:layout_weight="6" />
+        <TextView
+            p1:textAppearance="?android:attr/textAppearanceMedium"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/textView2"
+            p1:layout_weight="4"
+            p1:gravity="center"
+            p1:text="شرکت کننده دوم" />
+    </LinearLayout>
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:layout_width="match_parent"
+        p1:layout_height="41.0dp"
+        p1:id="@+id/linearLayout2"
+        p1:layout_margin="10dp">
+        <EditText
+            p1:inputType="textPersonName"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/txtName3"
+            p1:layout_weight="6" />
+        <TextView
+            p1:textAppearance="?android:attr/textAppearanceMedium"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/textView2"
+            p1:layout_weight="4"
+            p1:gravity="center"
+            p1:text="شرکت کننده سوم" />
+    </LinearLayout>
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:layout_width="match_parent"
+        p1:layout_height="41.0dp"
+        p1:id="@+id/linearLayout2"
+        p1:layout_margin="10dp">
+        <EditText
+            p1:inputType="textPersonName"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/txtName4"
+            p1:layout_weight="6" />
+        <TextView
+            p1:textAppearance="?android:attr/textAppearanceMedium"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/textView2"
+            p1:layout_weight="4"
+            p1:gravity="center"
+            p1:text="شرکت کننده چهارم" />
+    </LinearLayout>
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:layout_width="match_parent"
+        p1:layout_height="41.0dp"
+        p1:id="@+id/linearLayout2"
+        p1:layout_margin="10dp">
+        <EditText
+            p1:inputType="textPersonName"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/txtName5"
+            p1:layout_weight="6" />
+        <TextView
+            p1:textAppearance="?android:attr/textAppearanceMedium"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/textView2"
+            p1:layout_weight="4"
+            p1:gravity="center"
+            p1:text="شرکت کننده پنجم" />
+    </LinearLayout>
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:layout_width="match_parent"
+        p1:layout_height="41.0dp"
+        p1:id="@+id/linearLayout2"
+        p1:layout_margin="10dp">
+        <EditText
+            p1:inputType="textPersonName"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/txtName6"
+            p1:layout_weight="6" />
+        <TextView
+            p1:textAppearance="?android:attr/textAppearanceMedium"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/textView2"
+            p1:layout_weight="4"
+            p1:gravity="center"
+            p1:text="شرکت کننده ششم" />
+    </LinearLayout>
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:layout_width="match_parent"
+        p1:layout_height="64.5dp"
+        p1:id="@+id/linearLayout3"
+        p1:layout_margin="15dp">
+        <LinearLayout
+            p1:orientation="vertical"
+            p1:minWidth="25px"
+            p1:minHeight="25px"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/linearLayout4"
+            p1:layout_weight="3" />
+        <LinearLayout
+            p1:orientation="vertical"
+            p1:minWidth="25px"
+            p1:minHeight="25px"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/linearLayout5"
+            p1:layout_weight="3">
+            <Button
+                p1:text="شروع"
+                p1:layout_width="match_parent"
+                p1:layout_height="56.0dp"
+                p1:id="@+id/btnStart"
+                p1:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            p1:orientation="vertical"
+            p1:minWidth="25px"
+            p1:minHeight="25px"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/linearLayout6"
+            p1:layout_weight="3" />
+    </LinearLayout>
 </LinearLayout>
