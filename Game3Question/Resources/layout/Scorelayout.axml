@@ -17,7 +17,7 @@
         p1:layout_marginRight="60dp"
         p1:layout_marginLeft="60dp"
         p1:layout_marginTop="10dp"
-        p1:layout_marginBottom="10dp" />
+        p1:layout_marginBottom="0dp" />
     <TextView
         p1:text="Text"
         p1:layout_width="match_parent"
@@ -29,7 +29,7 @@
         p1:layout_marginRight="60dp"
         p1:layout_marginLeft="60dp"
         p1:layout_marginTop="10dp"
-        p1:layout_marginBottom="10dp" />
+        p1:layout_marginBottom="0dp" />
     <TextView
         p1:text="Text"
         p1:layout_width="match_parent"
@@ -41,7 +41,7 @@
         p1:layout_marginRight="60dp"
         p1:layout_marginLeft="60dp"
         p1:layout_marginTop="10dp"
-        p1:layout_marginBottom="10dp" />
+        p1:layout_marginBottom="0dp" />
     <TextView
         p1:text="Text"
         p1:layout_width="match_parent"
@@ -53,7 +53,7 @@
         p1:layout_marginRight="60dp"
         p1:layout_marginLeft="60dp"
         p1:layout_marginTop="10dp"
-        p1:layout_marginBottom="10dp" />
+        p1:layout_marginBottom="0dp" />
     <TextView
         p1:text="Text"
         p1:layout_width="match_parent"
@@ -65,7 +65,7 @@
         p1:layout_marginRight="60dp"
         p1:layout_marginLeft="60dp"
         p1:layout_marginTop="10dp"
-        p1:layout_marginBottom="10dp" />
+        p1:layout_marginBottom="0dp" />
     <TextView
         p1:text="Text"
         p1:layout_width="match_parent"
@@ -77,7 +77,7 @@
         p1:layout_marginRight="60dp"
         p1:layout_marginLeft="60dp"
         p1:layout_marginTop="10dp"
-        p1:layout_marginBottom="10dp" />
+        p1:layout_marginBottom="0dp" />
     <TextView
         p1:text="Text"
         p1:layout_width="match_parent"
@@ -89,5 +89,44 @@
         p1:layout_marginRight="60dp"
         p1:layout_marginLeft="60dp"
         p1:layout_marginTop="10dp"
-        p1:layout_marginBottom="10dp" />
+        p1:layout_marginBottom="0dp" />
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:layout_width="match_parent"
+        p1:layout_height="81.0dp"
+        p1:id="@+id/linearLayout2">
+        <LinearLayout
+            p1:orientation="vertical"
+            p1:minWidth="25px"
+            p1:minHeight="25px"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/linearLayout3"
+            p1:layout_weight="3" />
+        <LinearLayout
+            p1:orientation="vertical"
+            p1:minWidth="25px"
+            p1:minHeight="25px"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/linearLayout4"
+            p1:layout_weight="3">
+            <Button
+                p1:text="برگشت"
+                p1:layout_width="match_parent"
+                p1:layout_height="match_parent"
+                p1:id="@+id/btnBack"
+                p1:textSize="25dp"
+                p1:textStyle="bold"
+                p1:gravity="center" />
+        </LinearLayout>
+        <LinearLayout
+            p1:orientation="vertical"
+            p1:minWidth="25px"
+            p1:minHeight="25px"
+            p1:layout_width="0dp"
+            p1:layout_height="match_parent"
+            p1:id="@+id/linearLayout5"
+            p1:layout_weight="3" />
+    </LinearLayout>
 </LinearLayout>

@@ -25,7 +25,6 @@ namespace Game3Question
         TextView txtName;
 
         List<Person> Persons;
-        List<string> questions;
 
         int i = 0;
         int j = 0;
@@ -33,13 +32,14 @@ namespace Game3Question
         private MediaPlayer _player;
         private Timer timer;
 
+        QuestionRepository db = new QuestionRepository();
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.Questionlayout);
-            Persons = new List<Person>();
-            questions = new List<string>();
+            Persons = new List<Person>();   
 
             Persons.Add(new Person() { Id = 0, Name = "احمد", Score = 0 });
             Persons.Add(new Person() { Id = 0, Name = "علی", Score = 0 });
@@ -53,37 +53,17 @@ namespace Game3Question
             LinearLayout home = FindViewById<LinearLayout>(Resource.Id.linearLayout1);
             home.SetBackgroundResource(Resource.Raw.Bcar9g4Ri);
 
+           if(!db.HaveAnyQuestion())
+            {
+                insertQuestionFirstRun();   
+            }
 
+
+            var t = db.GetAllQuestion();
 
             timer = new Timer();
             timer.Interval = 5000;
             timer.Elapsed += Timer_Elapsed;
-
-
-            questions.Add("نام سه کشوری که با الف شروع می شود");
-            questions.Add("نام سه غذای مورد علاقه ت");
-            questions.Add("نام سه تا از شهر های جنوبی ایران");
-            questions.Add("نام سه تا از کشورهای اروپا");
-            questions.Add("نام سه کشوری که با الف شروع می شود");
-            questions.Add("نام سه غذای مورد علاقه ت");
-            questions.Add("نام سه تا از شهر های جنوبی ایران");
-            questions.Add("نام سه تا از کشورهای اروپا");
-            questions.Add("نام سه کشوری که با الف شروع می شود");
-            questions.Add("نام سه غذای مورد علاقه ت");
-            questions.Add("نام سه تا از شهر های جنوبی ایران");
-            questions.Add("نام سه تا از کشورهای اروپا");
-            questions.Add("نام سه کشوری که با الف شروع می شود");
-            questions.Add("نام سه غذای مورد علاقه ت");
-            questions.Add("نام سه تا از شهر های جنوبی ایران");
-            questions.Add("نام سه تا از کشورهای اروپا");
-            questions.Add("نام سه کشوری که با الف شروع می شود");
-            questions.Add("نام سه غذای مورد علاقه ت");
-            questions.Add("نام سه تا از شهر های جنوبی ایران");
-            questions.Add("نام سه تا از کشورهای اروپا");
-            questions.Add("نام سه کشوری که با الف شروع می شود");
-            questions.Add("نام سه غذای مورد علاقه ت");
-            questions.Add("نام سه تا از شهر های جنوبی ایران");
-            questions.Add("نام سه تا از کشورهای اروپا");
 
 
 
@@ -95,7 +75,8 @@ namespace Game3Question
             txtName = FindViewById<TextView>(Resource.Id.txtPersonName);
 
             txtName.Text = Persons.ElementAt(i).Name + "    (0)";
-            txtQuestion.Text = "";
+            //   txtQuestion.Text = "";
+            txtQuestion.Text ="تعداد سوالات موجود: "+ db.GetAllQuestion().Count().ToString();
 
             btnCorrect.Visibility = ViewStates.Invisible;
             btnWrong.Visibility = ViewStates.Invisible;
@@ -111,7 +92,7 @@ namespace Game3Question
             {
                 if (e.Event.Action == MotionEventActions.Down)
                 {
-                    txtQuestion.Text = questions.ElementAt(i);
+                    txtQuestion.Text =t.ElementAt(i).question;
                     txtQuestion.SetBackgroundColor(color);
                 }
                 else if (e.Event.Action == MotionEventActions.Up)
@@ -140,7 +121,7 @@ namespace Game3Question
             Android.Content.Intent intent = new Intent(this, typeof(ScoreActivity));
             UserParcelable parcelable = new UserParcelable();
 
-            parcelable.person = Persons.ElementAt(0);
+
             int i = 0;
             foreach (var item in Persons.OrderByDescending(p=>p.Score))
             {
@@ -190,7 +171,38 @@ namespace Game3Question
         _player = null;
         base.OnDestroy();
     }
-}
+
+        public void  insertQuestionFirstRun()
+        {
+            db.InsertQuestion(new Question()
+            {
+                question = "نام سه بازی در کودکی",
+                Level = 2,
+                TypeQuestion = 1,
+                Correct = 0,
+                Count = 0,
+                Wrong = 0
+            });
+            db.InsertQuestion(new Question()
+            {
+                question = "نام سه گل",
+                Level = 2,
+                TypeQuestion = 1,
+                Correct = 0,
+                Count = 0,
+                Wrong = 0
+            });
+            db.InsertQuestion(new Question()
+            {
+                question = "نام سه حیوان",
+                Level = 2,
+                TypeQuestion = 1,
+                Correct = 0,
+                Count = 0,
+                Wrong = 0
+            });
+        }
+    }
 }
 
 

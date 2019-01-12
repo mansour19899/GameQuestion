@@ -26,6 +26,8 @@ namespace Game3Question
 		
 		public static void UpdateIdValues()
 		{
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::Game3Question.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::Game3Question.Resource.String.Hello;
 		}
 		
 		public partial class Animation
@@ -2240,8 +2242,8 @@ namespace Game3Question
 			// aapt resource value: 0x7f090043
 			public const int action_mode_close_button = 2131296323;
 			
-			// aapt resource value: 0x7f0900ac
-			public const int action_settings = 2131296428;
+			// aapt resource value: 0x7f0900b0
+			public const int action_settings = 2131296432;
 			
 			// aapt resource value: 0x7f090087
 			public const int action_text = 2131296391;
@@ -2272,6 +2274,9 @@ namespace Game3Question
 			
 			// aapt resource value: 0x7f090028
 			public const int bottom = 2131296296;
+			
+			// aapt resource value: 0x7f0900ac
+			public const int btnBack = 2131296428;
 			
 			// aapt resource value: 0x7f0900a1
 			public const int btnCorrect = 2131296417;
@@ -2429,6 +2434,15 @@ namespace Game3Question
 			// aapt resource value: 0x7f09009e
 			public const int linearLayout2 = 2131296414;
 			
+			// aapt resource value: 0x7f0900aa
+			public const int linearLayout3 = 2131296426;
+			
+			// aapt resource value: 0x7f0900ab
+			public const int linearLayout4 = 2131296427;
+			
+			// aapt resource value: 0x7f0900ad
+			public const int linearLayout5 = 2131296429;
+			
 			// aapt resource value: 0x7f09000f
 			public const int listMode = 2131296271;
 			
@@ -2438,8 +2452,8 @@ namespace Game3Question
 			// aapt resource value: 0x7f090074
 			public const int mansour = 2131296372;
 			
-			// aapt resource value: 0x7f0900ab
-			public const int masked = 2131296427;
+			// aapt resource value: 0x7f0900af
+			public const int masked = 2131296431;
 			
 			// aapt resource value: 0x7f09008b
 			public const int media_actions = 2131296395;
@@ -2696,8 +2710,8 @@ namespace Game3Question
 			// aapt resource value: 0x7f09000e
 			public const int view_offset_helper = 2131296270;
 			
-			// aapt resource value: 0x7f0900aa
-			public const int visible = 2131296426;
+			// aapt resource value: 0x7f0900ae
+			public const int visible = 2131296430;
 			
 			// aapt resource value: 0x7f090027
 			public const int withText = 2131296295;
@@ -3029,6 +3043,12 @@ namespace Game3Question
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f0a002a
+			public const int ApplicationName = 2131361834;
+			
+			// aapt resource value: 0x7f0a0029
+			public const int Hello = 2131361833;
+			
 			// aapt resource value: 0x7f0a0000
 			public const int abc_action_bar_home_description = 2131361792;
 			
@@ -3122,11 +3142,11 @@ namespace Game3Question
 			// aapt resource value: 0x7f0a0012
 			public const int abc_toolbar_collapse_description = 2131361810;
 			
-			// aapt resource value: 0x7f0a002a
-			public const int action_settings = 2131361834;
+			// aapt resource value: 0x7f0a002c
+			public const int action_settings = 2131361836;
 			
-			// aapt resource value: 0x7f0a0029
-			public const int app_name = 2131361833;
+			// aapt resource value: 0x7f0a002b
+			public const int app_name = 2131361835;
 			
 			// aapt resource value: 0x7f0a0021
 			public const int appbar_scrolling_view_behavior = 2131361825;

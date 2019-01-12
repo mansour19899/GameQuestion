@@ -40,6 +40,7 @@ namespace Game3Question
 
             dest.WriteInt(person.Id);
             dest.WriteInt(person.Score);
+            dest.WriteInt(person.Level);
             dest.WriteString(person.Name);
 
         }
@@ -50,6 +51,7 @@ namespace Game3Question
             {
                 Id = parcel.ReadInt(),
                 Score = parcel.ReadInt(),
+                Level = parcel.ReadInt(),
                 Name = parcel.ReadString(),
 
             };

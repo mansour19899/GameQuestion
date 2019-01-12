@@ -30,7 +30,9 @@ namespace Game3Question
             SetContentView(Resource.Layout.Scorelayout);
 
             Color color = new Color(255, 255, 255, 170);
-          
+
+            Button btnBack = FindViewById<Button>(Resource.Id.btnBack);
+            btnBack.Click += BtnBack_Click;
 
             LinearLayout linearLayout = FindViewById<LinearLayout>(Resource.Id.ScoreHome);
             linearLayout.SetBackgroundResource(Resource.Raw.Bcar9g4Ri);
@@ -63,6 +65,11 @@ namespace Game3Question
 
 
             // Create your application here
+        }
+
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            Finish();
         }
     }
 }
