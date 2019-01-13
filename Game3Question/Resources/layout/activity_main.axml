@@ -154,7 +154,37 @@
             p1:layout_width="0dp"
             p1:layout_height="match_parent"
             p1:id="@+id/linearLayout4"
-            p1:layout_weight="3" />
+            p1:layout_weight="3">
+            <LinearLayout
+                p1:orientation="vertical"
+                p1:minWidth="25px"
+                p1:minHeight="25px"
+                p1:id="@+id/linearLayout6"
+                p1:layout_width="match_parent"
+                p1:layout_height="wrap_content">
+                <LinearLayout
+                    p1:orientation="vertical"
+                    p1:layout_width="match_parent"
+                    p1:layout_height="fill_parent"
+                    p1:id="@+id/linearLayout7">
+                    <TextView
+                        p1:text="تعداد سوالات"
+                        p1:textAppearance="?android:attr/textAppearanceSmall"
+                        p1:layout_width="match_parent"
+                        p1:layout_height="wrap_content"
+                        p1:id="@+id/textView3"
+                        p1:gravity="center"
+                        p1:layout_marginBottom="5.5dp" />
+                    <Spinner
+                        p1:id="@+id/spinnerCount"
+                        p1:entries="@array/dropdown_arrays1"
+                        p1:layout_width="match_parent"
+                        p1:layout_height="wrap_content"
+                        p1:layout_gravity="center"
+                        p1:gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
         <LinearLayout
             p1:orientation="vertical"
             p1:minWidth="25px"
@@ -177,6 +207,26 @@
             p1:layout_width="0dp"
             p1:layout_height="match_parent"
             p1:id="@+id/linearLayout6"
-            p1:layout_weight="3" />
+            p1:layout_weight="3">
+            <LinearLayout
+                p1:orientation="vertical"
+                p1:layout_width="match_parent"
+                p1:layout_height="fill_parent"
+                p1:id="@+id/linearLayout7">
+                <TextView
+                    p1:text="سطح سوالات"
+                    p1:textAppearance="?android:attr/textAppearanceSmall"
+                    p1:layout_width="match_parent"
+                    p1:layout_height="wrap_content"
+                    p1:id="@+id/textView3"
+                    p1:gravity="center"
+                    p1:layout_marginBottom="5.5dp" />
+                <Spinner
+                    p1:id="@+id/spinner1"
+                    p1:entries="@array/dropdown_arrays"
+                    p1:layout_width="match_parent"
+                    p1:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

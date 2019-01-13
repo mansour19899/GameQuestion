@@ -22,6 +22,11 @@ namespace Game3Question
         EditText per5;
         EditText per6;
 
+        int level = 1;
+        int CountQuestion = 10;
+        Spinner spinner1;
+        Spinner spinner2;
+
         protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -35,10 +40,32 @@ namespace Game3Question
             per5 = FindViewById<EditText>(Resource.Id.txtName5);
             per6 = FindViewById<EditText>(Resource.Id.txtName6);
 
+            spinner1= FindViewById<Spinner>(Resource.Id.spinner1);
+            spinner2 = FindViewById<Spinner>(Resource.Id.spinnerCount);
+
             Button btnstart= FindViewById<Button>(Resource.Id.btnStart);
             btnstart.Click += Btnstart_Click;
 
-
+            spinner1.ItemSelected += (s, e) =>
+            {
+               level = e.Position+1;
+            };
+            spinner2.ItemSelected += (s, e) =>
+            {
+                CountQuestion = e.Position + 1;
+                switch (e.Position)
+                {
+                    case 0:
+                        CountQuestion = 5;
+                        break;
+                    case 1:
+                        CountQuestion = 10;
+                        break;
+                    default:
+                        CountQuestion = 5;
+                        break;
+                }
+            };
         }
 
         private void Btnstart_Click(object sender, EventArgs e)
@@ -47,6 +74,8 @@ namespace Game3Question
             UserParcelable parcelable = new UserParcelable();
 
             List<Person> list = new List<Person>();
+
+            
 
             if(!string.IsNullOrEmpty(per1.Text))
             {
@@ -81,6 +110,8 @@ namespace Game3Question
                 i++;
             }
             intent.PutExtra("count", list.Count());
+            intent.PutExtra("Level", level);
+            intent.PutExtra("countQuestin", CountQuestion);
             if (list.Count()<2)
             {
                 Toast.MakeText(this, "حداقل نام دو نفر را برای شروع بازی وارد کنید", ToastLength.Long).Show();

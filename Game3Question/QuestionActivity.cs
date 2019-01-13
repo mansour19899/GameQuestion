@@ -26,6 +26,8 @@ namespace Game3Question
 
         List<Person> Persons;
 
+        int Level=1;
+        int CountQuestion=5;
         int i = 0;
         int j = 0;
 
@@ -43,6 +45,8 @@ namespace Game3Question
 
             SetPerson();
 
+            Level = (int)Intent.GetIntExtra("Level",1);
+            CountQuestion = (int)Intent.GetIntExtra("countQuestin", 5);
             j = i % 4;
             _player = MediaPlayer.Create(this, Resource.Raw.soundEnd1);
 
