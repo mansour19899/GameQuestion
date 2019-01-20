@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace Game3Question
 {
-	[Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+	[Activity(Label = "مسابقه سه سوالی", Theme = "@style/Theme.AppCompat.Light.DarkActionBar", MainLauncher = true)]
 	public class MainActivity : AppCompatActivity
 	{
         
@@ -27,11 +27,19 @@ namespace Game3Question
         Spinner spinner1;
         Spinner spinner2;
 
+        ApiRepository api = new ApiRepository();
+        QuestionRepository db = new QuestionRepository();
+
         protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
 			SetContentView(Resource.Layout.activity_main);
+
+           
+
+           TextView Update = FindViewById<TextView>(Resource.Id.textView1);
+            Update.Click += Update_Click;
 
             per1 = FindViewById<EditText>(Resource.Id.txtName1);
             per2 = FindViewById<EditText>(Resource.Id.txtName2);
@@ -66,6 +74,12 @@ namespace Game3Question
                         break;
                 }
             };
+        }
+
+        private void Update_Click(object sender, EventArgs e)
+        {
+
+
         }
 
         private void Btnstart_Click(object sender, EventArgs e)
@@ -125,7 +139,38 @@ namespace Game3Question
             base.OnDestroy();
         }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ListViewMenu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
 
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.actionRefresh:
+                    UpdateQuestion();
+                    break;
+                
+            }
+            return base.OnOptionsItemSelected(item);
+        }
+
+        public void UpdateQuestion()
+        {
+            int lastId = db.GetLastId();
+
+            var list = api.GetQuestions(lastId);
+            int count = 0;
+            foreach (var item in list)
+            {
+                db.InsertQuestion(item);
+                count++;
+            }
+
+            Toast.MakeText(this, count.ToString() + " عدد اضافه شد", ToastLength.Long).Show();
+        }
     }
 }
 

@@ -32,6 +32,8 @@ namespace Game3Question
         public int Correct { get; set; }
         [NotNull]
         public int Wrong { get; set; }
+        [NotNull]
+        public int IdQuestion { get; set; }
 
     }
 
@@ -60,8 +62,13 @@ namespace Game3Question
             return db.Table<Question>().SingleOrDefault(f => f.Id == QuestionId);
         }
 
+        public int GetLastId()
+        {            
+            return db.Table<Question>().Max(p => p.IdQuestion);
+        }
         public void InsertQuestion(Question question)
         {
+            question.IdQuestion = question.Id;
             db.Insert(question);
         }
 

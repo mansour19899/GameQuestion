@@ -14,7 +14,7 @@ using Android.Widget;
 
 namespace Game3Question
 {
-    [Activity(Label = "QuestionActivity", Theme = "@style/AppTheme.NoActionBar", MainLauncher = false)]
+    [Activity(Label = "QuestionActivity", Theme = "@style/Theme.AppCompat.Light.DarkActionBar", MainLauncher = false)]
     public class QuestionActivity : Activity
     {
         Button btnPush;
@@ -193,7 +193,8 @@ namespace Game3Question
                 TypeQuestion = 1,
                 Correct = 0,
                 Count = 0,
-                Wrong = 0
+                Wrong = 0,
+                IdQuestion=1
             });
             db.InsertQuestion(new Question()
             {
@@ -202,7 +203,9 @@ namespace Game3Question
                 TypeQuestion = 1,
                 Correct = 0,
                 Count = 0,
-                Wrong = 0
+                Wrong = 0,
+                IdQuestion=2
+               
             });
             db.InsertQuestion(new Question()
             {
@@ -211,10 +214,18 @@ namespace Game3Question
                 TypeQuestion = 1,
                 Correct = 0,
                 Count = 0,
-                Wrong = 0
+                Wrong = 0,
+                IdQuestion=3
             });
         }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ListViewMenu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
     }
+   
 }
 
 
