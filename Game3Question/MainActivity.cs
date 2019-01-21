@@ -8,13 +8,15 @@ using Android.Views;
 using Android.Content;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace Game3Question
 {
 	[Activity(Label = "مسابقه سه سوالی", Theme = "@style/Theme.AppCompat.Light.DarkActionBar", MainLauncher = true)]
 	public class MainActivity : AppCompatActivity
 	{
-        
+       ProgressDialog progress;
+
         EditText per1;
         EditText per2;
         EditText per3;
@@ -78,6 +80,10 @@ namespace Game3Question
 
         private void Update_Click(object sender, EventArgs e)
         {
+            //var progressDialog = ProgressDialog.Show(this, "Please wait...", "Checking account info...", true);
+            //new Thread(new ThreadStart(delegate { RunOnUiThread(() => Toast.MakeText(this, "Toast within progress dialog.", ToastLength.Long).Show());
+            //    RunOnUiThread(() => progressDialog.Hide()); })).Start();
+
 
 
         }
@@ -159,17 +165,35 @@ namespace Game3Question
 
         public void UpdateQuestion()
         {
-            int lastId = db.GetLastId();
+            progress = new Android.App.ProgressDialog(this);
+            progress.Indeterminate = true;
+            progress.SetProgressStyle(Android.App.ProgressDialogStyle.Spinner);
+            progress.SetMessage("در حال به روزرسانی سوالات...\nکمی صبر کنید");
+            progress.SetCancelable(false);
+            progress.Show();
 
-            var list = api.GetQuestions(lastId);
             int count = 0;
-            foreach (var item in list)
-            {
-                db.InsertQuestion(item);
-                count++;
-            }
 
-            Toast.MakeText(this, count.ToString() + " عدد اضافه شد", ToastLength.Long).Show();
+            Handler h = new Handler();
+            Action myAction = () =>
+            {
+                int lastId = db.GetLastId();
+
+                var list = api.GetQuestions(lastId);
+               
+                foreach (var item in list)
+                {
+                    db.InsertQuestion(item);
+                    count++;
+                }
+                RunOnUiThread(() => progress.Hide());
+                Toast.MakeText(this, count.ToString() + " عدد اضافه شد", ToastLength.Long).Show();
+            };
+
+            h.PostDelayed(myAction, 1000);
+       
+
+      
         }
     }
 }
